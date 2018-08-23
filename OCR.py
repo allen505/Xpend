@@ -21,13 +21,6 @@ def set_image_dpi(file_path):
     return temp_filename
 
 
-def process_image_for_ocr(file_path):
-    # TODO : Implement using opencv
-    temp_filename = set_image_dpi(file_path)
-    im_new = remove_noise_and_smooth(temp_filename)
-    return im_new
-
-
 def image_smoothening(img):
     ret1, th1 = cv2.threshold(img, BINARY_THREHOLD, 255, cv2.THRESH_BINARY)
     ret2, th2 = cv2.threshold(th1, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
@@ -47,19 +40,49 @@ def remove_noise_and_smooth(file_name):
     return or_image
 
 
-def clickp(self,file_path):
-    process_image_for_ocr(file_path)
-    set_image_dpi(file_path)
-    # image_smoothening(file_path)
-    remove_noise_and_smooth(file_path)
-    text = pytesseract.image_to_string(Image.open(file_path))
+def process_image_for_ocr(file_path):
+    # TODO : Implement using opencv
+    temp_filename = set_image_dpi(file_path)
+    im_new = remove_noise_and_smooth(temp_filename)
+    return im_new
+
+
+####################################################################################################
+def textext():
+    # Open the file with read only permit
+    f = open('prctxt.txt', "r")
+    # use readlines to read all lines in the file
+    # The variable "lines" is a list containing all lines in the file
+    lines = f.readlines()
+    # close the file after reading the lines.
+    amt=0
+    amt1 = ''
+    for i in lines:
+        i = i.lower()
+
+        if i.startswith('net amount '):
+            for j in i:
+                if not j.isalpha():
+                    amt1 = amt1 + j
+    a = (amt1.split())
+    print(a[1])
+    amt += a[1]
+    f.close()
+    return amt
+
+
+#####################################################################################################
+def final_image(file_path):
+    im=process_image_for_ocr(file_path)
+    #set_image_dpi(file_path)
+    #image_smoothening(file_path)
+    #remove_noise_and_smooth(file_path)
     print('--- Start recognize text from image ---')
+    text = pytesseract.image_to_string(Image.open(file_path))
     print(text)
-    text1 = str(text)
+    text = str(text)
     file2 = open("prctxt.txt", 'w')
     file2.write(str(text))
     file2.close()
     print("------ Done -------")
-    self.textext()
-    self.mess()
-
+    return textext()
