@@ -1,27 +1,3 @@
-"""
-TO DO:
-
-text_message.py
-    recheck all the function and algorithms
-    clear the return of the function
-    fill in the comments
-
-OCR.py
-    check for any missing variables
-    ensure proper passing of file_path variable
-    ensure proper return or store of data and appropriate message to be displayed
-
-main.py
-    ensure uploading of necessary file and file_path for OCR.py
-    check for any variable which needs to be passed to the function call
-    give a more aesthetic look to the windows
-    ensure correct storing a returning of data
-    display appropriate error or affirmative messages
-    correct the function naming in several instances, for ex: clickp has a collision with one of the OCR packages
-
-"""
-
-
 
 from OCR import final_image
 
@@ -38,7 +14,8 @@ class hello:
     def __init__(self):
         self.file1 = open('ords.txt', "a")
         self.root = tk.Tk("Xpend")
-        self.root.title("")
+        #this makes the main window
+        #self.root.title("")
         self.root.iconbitmap(self, default="images\icon.ico")
         self.topFrame=Frame(self.root)
         self.topFrame.pack()
@@ -73,11 +50,16 @@ class hello:
         self.manualw.mainloop()
 
     def clickp(self):
-        #self.clickw = Tk()
         file_path =str(askopenfilename())
+        final_image(str(file_path))
+        """
         amt=final_image(str(file_path))
-        label=Label(self.clickw,text=amt).grid(row=0)
-        #self.clickw.mainloop()
+        label=Label(self.mainp,text=amt).grid(row=0)
+        label.pack()
+        """
+
+
+
 
     def msgp(self):
         #this functions will be improvied in a later build

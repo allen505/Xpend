@@ -1,6 +1,6 @@
 
 import numpy as np
-import pytesseract
+import pytesseract as pt
 from PIL import Image
 import cv2
 import tempfile
@@ -74,15 +74,16 @@ def textext():
 #####################################################################################################
 def final_image(file_path):
     im=process_image_for_ocr(file_path)
+    print(im)
     #set_image_dpi(file_path)
     #image_smoothening(file_path)
     #remove_noise_and_smooth(file_path)
     print('--- Start recognize text from image ---')
-    text = pytesseract.image_to_string(Image.open(file_path))
+    text = pt.image_to_string(Image.open(file_path))
     print(text)
-    text = str(text)
+    #text = str(text)
     file2 = open("prctxt.txt", 'w')
     file2.write(str(text))
     file2.close()
     print("------ Done -------")
-    return textext()
+    #return textext()
