@@ -73,13 +73,14 @@ def textext():
 
 #####################################################################################################
 def final_image(file_path):
+    pt.pytesseract.tesseract_cmd = r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe"
     im=process_image_for_ocr(file_path)
     print(im)
     #set_image_dpi(file_path)
     #image_smoothening(file_path)
     #remove_noise_and_smooth(file_path)
     print('--- Start recognize text from image ---')
-    text = pt.image_to_string(Image.open(file_path))
+    text = pt.image_to_string(im)
     print(text)
     #text = str(text)
     file2 = open("prctxt.txt", 'w')
