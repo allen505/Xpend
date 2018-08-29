@@ -4,16 +4,19 @@ from OCR import final_image
 from datetime import datetime as dt
 
 from tkinter import *
-import tkinter as tk
+import tkinter
 from tkinter.filedialog import askopenfilename
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
 global Xpend
 
 class hello:
     def __init__(self):
+        self.buttonHeight=20
+        self.buttonWidth=50
         self.file1 = open('ords.txt', "a")
-        self.root = tk.Tk("Xpend")
+        self.root = tkinter.Tk("Xpend")
+        self.root.geometry("500x300")
         #this makes the main window
         #self.root.title("")
         self.root.iconbitmap(self, default="images\icon.ico")
@@ -36,11 +39,11 @@ class hello:
 
     def manualp(self):
         self.manualw = Tk()
-        self.manualw.iconbitmap(self, default="images\icon.ico")
-        label1 = Label(self.manualw, text="Enter the amount").grid(row=0)
+        self.manualw.geometry("500x300")
+        Label(self.manualw, text="Enter the amount").grid(row=0)
         self.entryamt = Entry(self.manualw)
         self.entryamt.grid(row=0, column=1)
-        label1 = Label(self.manualw, text="Enter the tag").grid(row=1)
+        Label(self.manualw, text="Enter the tag").grid(row=1)
         self.entrytag = Entry(self.manualw)
         self.entrytag.grid(row=1, column=1)
         self.bsubmit = ttk.Button(self.manualw, text="Enter into file", command=self.but1fun)
@@ -50,8 +53,13 @@ class hello:
         self.manualw.mainloop()
 
     def clickp(self):
-        file_path =str(askopenfilename())
-        final_image(str(file_path))
+        try:
+            file_path = str(askopenfilename(initialdir="images\Sample Bills", title="Select bill image",
+                                            filetypes=[("Image Files", "*.jpeg;*.jpg;*.png")]))
+            final_image(str(file_path))
+        except:
+            messagebox.showerror("Error","Image was not selected")
+
         """
         amt=final_image(str(file_path))
         label=Label(self.mainp,text=amt).grid(row=0)
