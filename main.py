@@ -36,6 +36,7 @@ class hello:
         self.label2 = Label(self.manualw, text="Transaction is successfully saved.")
         self.label2.grid(row=6, columnspan=3)
         self.file1.close()
+        self.manualw.after(2000, lambda: self.manualw.destroy())
 
     def manualp(self):
         self.manualw = Tk()
