@@ -104,7 +104,7 @@ venv.bak/
 .mypy_cache/
 
 .idea
-ords.txt
+data.txt
 ocv.py
 prctxt.txt
 watch.jpg
