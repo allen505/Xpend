@@ -1,3 +1,4 @@
+
 import numpy as np
 import pytesseract as pt
 from PIL import Image
@@ -19,17 +20,10 @@ def set_image_dpi(file_path):
     im_resized.save(temp_filename, dpi=(300, 300))
     return temp_filename
 
-def deskew(file_path):
-    im = Image.open(file_path)
-    rows,cols,ch = img.shape
-    pts1 = np.float32([[56,65],[368,52],[28,387],[389,390]])
-    pts2 = np.float32([[0,0],[300,0],[0,300],[300,300]])
-    M = cv2.getPerspectiveTransform(pts1,pts2)
-    deskewed = cv2.warpPerspective(img,M,(300,300))
-    return deskewed
 
-
-def otsu_threshold(img):
+def image_smoothening(img):
+    ret1, th1 = cv2.threshold(img, BINARY_THREHOLD, 255, cv2.THRESH_BINARY)
+    ret2, th2 = cv2.threshold(th1, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     blur = cv2.GaussianBlur(th2, (1, 1), 0)
     ret3, th3 = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     return th3
@@ -37,16 +31,17 @@ def otsu_threshold(img):
 
 def remove_noise_and_smooth(file_name):
     img = cv2.imread(file_name, 0)
-    deskw = deskew(img)
-    blurimg = cv2.medianBlur(deskw, 5)
-    thres_img = otsu_threshold(blurimg)
-    kernel = np.ones((5,5),np.uint8)
-    opening = cv2.morphologyEx(thres_img, cv2.MORPH_OPEN, kernel)
+    filtered = cv2.adaptiveThreshold(img.astype(np.uint8), 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 41, 3)
+    kernel = np.ones((1, 1), np.uint8)
+    opening = cv2.morphologyEx(filtered, cv2.MORPH_OPEN, kernel)
     closing = cv2.morphologyEx(opening, cv2.MORPH_CLOSE, kernel)
-    return closing
+    img = image_smoothening(img)
+    or_image = cv2.bitwise_or(img, closing)
+    return or_image
 
 
 def process_image_for_ocr(file_path):
+    # TODO : Implement using opencv
     temp_filename = set_image_dpi(file_path)
     im_new = remove_noise_and_smooth(temp_filename)
     return im_new
@@ -75,17 +70,21 @@ def textext():
     f.close()
     return amt
 
+
 #####################################################################################################
 def final_image(file_path):
-    pt.pytesseract.tesseract_cmd = r"D:\All python\tesseract\Tesseract-OCR\tesseract.exe"
+    pt.pytesseract.tesseract_cmd = r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe"
     im=process_image_for_ocr(file_path)
-    cv2.show(im)
+    print(im)
+    #set_image_dpi(file_path)
+    #image_smoothening(file_path)
+    #remove_noise_and_smooth(file_path)
     print('--- Start recognize text from image ---')
     text = pt.image_to_string(im)
     print(text)
+    #text = str(text)
     file2 = open("prctxt.txt", 'w')
     file2.write(str(text))
     file2.close()
     print("------ Done -------")
-    #return textext()
-
+#return textext()
