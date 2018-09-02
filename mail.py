@@ -3,8 +3,8 @@ import time
 import imaplib
 import email
 ORG_EMAIL   = "@gmail.com"
-FROM_EMAIL  = "atulmb99" + ORG_EMAIL
-FROM_PWD    = "@atul_Bharadwaj"
+FROM_EMAIL  = "(INSERT GMAIL ID)" + ORG_EMAIL
+FROM_PWD    = "(INSERT PASSWORD)"
 SMTP_SERVER = "imap.gmail.com"
 SMTP_PORT   = 993
 def read_email_from_gmail():
