@@ -27,3 +27,5 @@ Possible options to implement the mobile app includes
 ##Reference
 
 App called Monito implements alot of the required functionality to be used as a reference
+Sample data for ML:
+https://www.kaggle.com/grosvenpaul/family-income-and-expenditure
