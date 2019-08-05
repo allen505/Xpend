@@ -1,11 +1,11 @@
 # REQUIREMENTS
 
-##Introduction
+## Introduction
 Xpend is a financial management application for mobile devices where every individual can track his/her monthly expenses.
 Shows detailed expense charts month wise as well as predictions for the upcoming months based on user data implemented through ML.
 
 
-##Functionality
+## Functionality
 1. Manual expense adder 
 2. Charts to show monthly expense
 3. Must also label the expense added with a certain category and optional notes
@@ -16,10 +16,10 @@ Shows detailed expense charts month wise as well as predictions for the upcoming
 8. Prediction of the next month's expenditure for each category based on usual expenditure
 9. Widget to make adding expenses easier
 
-##Implementation
+## Implementation
 Flutter has been chosen for the apps frontend, along with Firebase by Google as backend. All the further functionality required by the application can be directly implemented using Firebase as well.
 
-##Reference
+## Reference
 
 App called Monito implements alot of the required functionality to be used as a reference. 
 
