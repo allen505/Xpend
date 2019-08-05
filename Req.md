@@ -17,12 +17,7 @@ Shows detailed expense charts month wise as well as predictions for the upcoming
 9. Widget to make adding expenses easier
 
 ##Implementation
-Possible options to implement the mobile app includes
-
-1. Android Studio
-2. Flutter
-3. React Native
-(?)
+Flutter has been chosen for the apps frontend, along with Firebase by Google as backend. All the further functionality required by the application can be directly implemented using Firebase as well.
 
 ##Reference
 
