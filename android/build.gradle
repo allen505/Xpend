@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://maven.google.com" // Google's Maven repository
+        }
+    }
+
+    dependencies {
+        // Example existing classpath
+        classpath 'com.android.tools.build:gradle:3.4.2'
+        // Add the google services classpath
+        classpath 'com.google.gms:google-services:4.3.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
