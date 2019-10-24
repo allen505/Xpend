@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070ABEA523617C8700B9C860 /* IndividualTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070ABEA423617C8700B9C860 /* IndividualTransaction.swift */; };
+		070ABEA723617EBB00B9C860 /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070ABEA623617EBB00B9C860 /* SummaryVC.swift */; };
+		070ABEA923617EEA00B9C860 /* TransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070ABEA823617EEA00B9C860 /* TransactionsVC.swift */; };
+		078E832A2361A35000EE2F09 /* TransCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E83292361A35000EE2F09 /* TransCollectionVC.swift */; };
 		07AE471F2358670D00947315 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE471E2358670D00947315 /* AppDelegate.swift */; };
 		07AE47212358670D00947315 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE47202358670D00947315 /* ViewController.swift */; };
 		07AE47242358670D00947315 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07AE47222358670D00947315 /* Main.storyboard */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070ABEA423617C8700B9C860 /* IndividualTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTransaction.swift; sourceTree = "<group>"; };
+		070ABEA623617EBB00B9C860 /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
+		070ABEA823617EEA00B9C860 /* TransactionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsVC.swift; sourceTree = "<group>"; };
+		078E83292361A35000EE2F09 /* TransCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransCollectionVC.swift; sourceTree = "<group>"; };
 		07AE471B2358670D00947315 /* Xpend_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xpend_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07AE471E2358670D00947315 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07AE47202358670D00947315 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,9 +64,13 @@
 		07AE471D2358670D00947315 /* Xpend_swift */ = {
 			isa = PBXGroup;
 			children = (
+				078E83292361A35000EE2F09 /* TransCollectionVC.swift */,
+				070ABEA423617C8700B9C860 /* IndividualTransaction.swift */,
 				07AE471E2358670D00947315 /* AppDelegate.swift */,
 				07AE47202358670D00947315 /* ViewController.swift */,
 				07AE47222358670D00947315 /* Main.storyboard */,
+				070ABEA823617EEA00B9C860 /* TransactionsVC.swift */,
+				070ABEA623617EBB00B9C860 /* SummaryVC.swift */,
 				07AE47282358670F00947315 /* Assets.xcassets */,
 				07AE472A2358670F00947315 /* LaunchScreen.storyboard */,
 				07AE472D2358670F00947315 /* Info.plist */,
@@ -138,9 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070ABEA723617EBB00B9C860 /* SummaryVC.swift in Sources */,
 				07AE47212358670D00947315 /* ViewController.swift in Sources */,
+				070ABEA523617C8700B9C860 /* IndividualTransaction.swift in Sources */,
+				070ABEA923617EEA00B9C860 /* TransactionsVC.swift in Sources */,
 				07AE471F2358670D00947315 /* AppDelegate.swift in Sources */,
 				07AE47272358670D00947315 /* Xpend_swift.xcdatamodeld in Sources */,
+				078E832A2361A35000EE2F09 /* TransCollectionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
